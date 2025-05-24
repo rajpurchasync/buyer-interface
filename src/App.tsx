@@ -26,7 +26,7 @@ function App() {
   return (
     <div className="min-h-screen bg-gray-100 pb-16 md:pb-0">
       {/* Navigation Bar */}
-      <nav className="bg-white shadow-md fixed w-full z-10">
+      <nav className="bg-white shadow-md fixed w-full z-50">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-8">
@@ -48,16 +48,13 @@ function App() {
             
             <div className="flex items-center space-x-6">
               <NavItem icon={<Bot className="h-5 w-5 md:h-6 md:w-6" />} text="AI Assistant" />
-              <div className="h-8 w-8 rounded-full bg-gray-200 flex items-center justify-center">
-                <User className="h-5 w-5 text-gray-600" />
-              </div>
             </div>
           </div>
         </div>
       </nav>
 
       {/* Main Content */}
-      <div className="pt-16 max-w-7xl mx-auto px-4 py-6 md:py-8">
+      <div className="pt-20 max-w-7xl mx-auto px-4 py-6 md:py-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6">
           {/* Left Sidebar */}
           <div className="md:col-span-1">
@@ -242,7 +239,7 @@ function App() {
       </div>
 
       {/* Mobile Bottom Navigation */}
-      <div className="fixed bottom-0 left-0 right-0 bg-white border-t md:hidden">
+      <div className="fixed bottom-0 left-0 right-0 bg-white border-t md:hidden z-50">
         <div className="flex justify-around items-center h-16">
           <button className="flex flex-col items-center text-gray-500 hover:text-blue-600">
             <Home className="h-5 w-5" />
