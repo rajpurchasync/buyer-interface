@@ -73,18 +73,18 @@ function App() {
             <div className="bg-white rounded-lg shadow p-3 md:p-4">
               <div className="grid grid-cols-3 gap-2 md:grid-cols-1 md:gap-3">
                 <QuickAction 
-                  icon={<Store />} 
-                  text="Browse Marketplace" 
+                  icon={<Store className="h-5 w-5 md:h-6 md:w-6" />} 
+                  text="Browse" 
                   description="Browse products and services" 
                 />
                 <QuickAction 
-                  icon={<DollarSign />} 
-                  text="Create RFQ" 
+                  icon={<DollarSign className="h-5 w-5 md:h-6 md:w-6" />} 
+                  text="RFQ" 
                   description="Create new request for quotation" 
                 />
                 <QuickAction 
-                  icon={<LayoutDashboard />} 
-                  text="My Dashboard" 
+                  icon={<LayoutDashboard className="h-5 w-5 md:h-6 md:w-6" />} 
+                  text="Dashboard" 
                   description="View your analytics and activities" 
                 />
               </div>
