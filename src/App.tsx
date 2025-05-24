@@ -19,7 +19,7 @@ import {
 } from 'lucide-react';
 
 function App() {
-  const [activeTab, setActiveTab] = useState('myquotes');
+  const [activeTab, setActiveTab] = useState('notifications');
 
   return (
     <div className="min-h-screen bg-gray-100">
@@ -88,17 +88,17 @@ function App() {
                 />
                 <QuickAction 
                   icon={<DollarSign />} 
-                  text="Create Quote Request" 
+                  text="Create RFQ" 
                   description="Create new request for quotation" 
                 />
                 <QuickAction 
                   icon={<FileText />} 
-                  text="Manage Quotes" 
+                  text="My Quotes" 
                   description="Review and manage your quotations" 
                 />
                 <QuickAction 
                   icon={<LayoutDashboard />} 
-                  text="Dashboard" 
+                  text="My Dashboard" 
                   description="View your analytics and activities" 
                 />
               </div>
@@ -384,8 +384,8 @@ function QuoteItem({
     <div className="p-4 border rounded-lg hover:bg-gray-50">
       <div className="flex justify-between items-start mb-2">
         <div>
-          <h4 className="font-medium text-blue-600">{rfqNumber}</h4>
-          <p className="text-sm text-gray-600">{category}</p>
+          <h4 className="text-gray-800">{rfqNumber}</h4>
+          <p className="text-sm font-semibold text-gray-800">{category}</p>
           <p className="text-sm text-gray-500">Created: {dateCreated}</p>
         </div>
         <button className="text-blue-600 text-sm font-medium flex items-center hover:text-blue-700">
