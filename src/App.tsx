@@ -92,6 +92,11 @@ function App() {
                   description="Create new request for quotation" 
                 />
                 <QuickAction 
+                  icon={<FileText />} 
+                  text="My Quotes" 
+                  description="Review and manage your quotations" 
+                />
+                <QuickAction 
                   icon={<LayoutDashboard />} 
                   text="My Dashboard" 
                   description="View your analytics and activities" 
