@@ -18,7 +18,7 @@ import {
 } from 'lucide-react';
 
 function App() {
-  const [activeTab, setActiveTab] = useState('feed');
+  const [activeTab, setActiveTab] = useState('myquotes');
 
   return (
     <div className="min-h-screen bg-gray-100">
@@ -172,15 +172,13 @@ function App() {
                   <QuoteItem
                     rfqNumber="RFQ-2025-001"
                     dateCreated="2025-02-10"
-                    title="Commercial Kitchen Equipment"
-                    category="Equipment"
+                    category="Kitchen Equipment"
                     responses={3}
                     daysLeft={2}
                   />
                   <QuoteItem
                     rfqNumber="RFQ-2025-002"
                     dateCreated="2025-02-08"
-                    title="Monthly Produce Supply"
                     category="Food & Beverage"
                     responses={5}
                     daysLeft={4}
@@ -188,8 +186,7 @@ function App() {
                   <QuoteItem
                     rfqNumber="RFQ-2025-003"
                     dateCreated="2025-02-05"
-                    title="Cleaning Supplies"
-                    category="Housekeeping"
+                    category="Housekeeping Supplies"
                     responses={8}
                     daysLeft={1}
                   />
@@ -361,14 +358,12 @@ function Post({
 function QuoteItem({ 
   rfqNumber, 
   dateCreated, 
-  title, 
   category, 
   responses, 
   daysLeft 
 }: { 
   rfqNumber: string;
   dateCreated: string;
-  title: string;
   category: string;
   responses: number;
   daysLeft: number;
@@ -382,8 +377,7 @@ function QuoteItem({
         </div>
         <span className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">{category}</span>
       </div>
-      <h3 className="font-medium text-gray-900 mb-2">{title}</h3>
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center mt-4">
         <span className="text-sm text-green-600">{responses} Responses</span>
         <span className="text-sm text-gray-500">{daysLeft} days left</span>
       </div>
