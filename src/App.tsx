@@ -54,7 +54,7 @@ function App() {
       </nav>
 
       {/* Main Content */}
-      <main className="relative pt-16 mt-4 max-w-7xl mx-auto px-4 py-6 md:py-8">
+      <main className="relative pt-20 max-w-7xl mx-auto px-4 pb-6 md:pb-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6">
           {/* Left Sidebar */}
           <div className="md:col-span-1">
