@@ -64,7 +64,6 @@ function App() {
           <div className="md:col-span-1">
             {/* Quick Actions */}
             <div className="bg-white rounded-lg shadow p-4">
-              <h3 className="font-semibold mb-4">Quick Actions</h3>
               <div className="space-y-3">
                 <QuickAction 
                   icon={<Store />} 
