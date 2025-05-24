@@ -60,25 +60,10 @@ function App() {
       {/* Main Content */}
       <div className="pt-16 max-w-7xl mx-auto px-4 py-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-          {/* Profile Section */}
+          {/* Left Sidebar */}
           <div className="md:col-span-1">
-            <div className="bg-white rounded-lg shadow p-4">
-              <div className="flex items-center space-x-4">
-                <img
-                  src="https://images.unsplash.com/photo-1512485694743-9c9538b4e6e0?auto=format&fit=crop&q=80&w=150&h=150"
-                  alt="Profile"
-                  className="w-24 h-24 rounded-full"
-                />
-                <div>
-                  <h2 className="text-xl font-bold">Rajkumar Dhakal</h2>
-                  <p className="text-gray-600">Procurement Head at The Hotel Group</p>
-                  <p className="text-sm text-gray-500 mt-2">Dubai, UAE</p>
-                </div>
-              </div>
-            </div>
-
             {/* Quick Actions */}
-            <div className="bg-white rounded-lg shadow mt-6 p-4">
+            <div className="bg-white rounded-lg shadow p-4">
               <h3 className="font-semibold mb-4">Quick Actions</h3>
               <div className="space-y-3">
                 <QuickAction 
