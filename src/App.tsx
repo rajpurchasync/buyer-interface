@@ -39,7 +39,7 @@ function App() {
                   <input
                     type="text"
                     placeholder="Search Product, supplier, service, freelance"
-                    className="w-96 pl-10 pr-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500"
+                    className="w-96 pl-10 pr-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200"
                   />
                   <Search className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
                 </div>
@@ -53,26 +53,38 @@ function App() {
         </div>
       </nav>
 
+      {/* Mobile Search Bar - Separate fixed position */}
+      <div className="md:hidden fixed top-16 left-0 right-0 bg-white z-40 px-4 py-3 shadow-sm">
+        <div className="relative">
+          <input
+            type="text"
+            placeholder="Search products, suppliers..."
+            className="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200 text-sm"
+          />
+          <Search className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
+        </div>
+      </div>
+
       {/* Main Content */}
-      <main className="relative pt-16 mt-4 max-w-7xl mx-auto px-4 py-6 md:py-8">
+      <main className="relative pt-32 md:pt-20 max-w-7xl mx-auto px-4 pb-6 md:pb-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6">
           {/* Left Sidebar */}
           <div className="md:col-span-1">
             <div className="bg-white rounded-lg shadow p-3 md:p-4">
-              <div className="space-y-2 md:space-y-3">
+              <div className="grid grid-cols-3 gap-2 md:grid-cols-1 md:gap-3">
                 <QuickAction 
-                  icon={<Store />} 
-                  text="Browse Marketplace" 
+                  icon={<Store className="h-5 w-5 md:h-6 md:w-6" />} 
+                  text="Browse" 
                   description="Browse products and services" 
                 />
                 <QuickAction 
-                  icon={<DollarSign />} 
-                  text="Create RFQ" 
+                  icon={<DollarSign className="h-5 w-5 md:h-6 md:w-6" />} 
+                  text="RFQ" 
                   description="Create new request for quotation" 
                 />
                 <QuickAction 
-                  icon={<LayoutDashboard />} 
-                  text="My Dashboard" 
+                  icon={<LayoutDashboard className="h-5 w-5 md:h-6 md:w-6" />} 
+                  text="Dashboard" 
                   description="View your analytics and activities" 
                 />
               </div>
@@ -82,7 +94,7 @@ function App() {
           {/* Main Feed and Features */}
           <div className="md:col-span-2 space-y-4 md:space-y-6">
             {/* Content Tabs */}
-            <div className="bg-white rounded-lg shadow">
+            <div className="bg-white rounded-lg shadow overflow-hidden">
               <div className="flex border-b">
                 <TabButton active={activeTab === 'notifications'} onClick={() => setActiveTab('notifications')}>Notifications</TabButton>
                 <TabButton active={activeTab === 'myquotes'} onClick={() => setActiveTab('myquotes')}>My Quotes</TabButton>
@@ -123,7 +135,7 @@ function App() {
                       <input
                         type="text"
                         placeholder="Share your thoughts..."
-                        className="flex-1 rounded-full border border-gray-300 px-4 py-2 text-sm focus:outline-none focus:border-blue-500"
+                        className="flex-1 rounded-full border border-gray-300 px-4 py-2 text-sm focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200"
                       />
                     </div>
                   </div>
@@ -241,25 +253,25 @@ function App() {
       {/* Mobile Bottom Navigation */}
       <div className="fixed bottom-0 left-0 right-0 bg-white border-t md:hidden z-50">
         <div className="flex justify-around items-center h-16">
-          <button className="flex flex-col items-center text-gray-500 hover:text-blue-600">
+          <button className="flex flex-col items-center text-gray-500 hover:text-blue-600 transition-colors duration-200">
             <Home className="h-5 w-5" />
             <span className="text-[10px] mt-1">Home</span>
           </button>
-          <button className="flex flex-col items-center text-gray-500 hover:text-blue-600">
+          <button className="flex flex-col items-center text-gray-500 hover:text-blue-600 transition-colors duration-200">
             <MessageSquare className="h-5 w-5" />
             <span className="text-[10px] mt-1">Message</span>
           </button>
-          <button className="flex flex-col items-center justify-center -mt-6">
-            <div className="bg-blue-600 rounded-full p-3">
+          <button className="flex flex-col items-center justify-center -mt-6 transform hover:scale-105 transition-transform duration-200">
+            <div className="bg-blue-600 rounded-full p-3 shadow-lg">
               <PlusCircle className="h-6 w-6 text-white" />
             </div>
-            <span className="text-[10px] mt-1 text-blue-600">RFQ</span>
+            <span className="text-[10px] mt-1 text-blue-600 font-medium">RFQ</span>
           </button>
-          <button className="flex flex-col items-center text-gray-500 hover:text-blue-600">
+          <button className="flex flex-col items-center text-gray-500 hover:text-blue-600 transition-colors duration-200">
             <BookmarkIcon className="h-5 w-5" />
             <span className="text-[10px] mt-1">Saved</span>
           </button>
-          <button className="flex flex-col items-center text-gray-500 hover:text-blue-600">
+          <button className="flex flex-col items-center text-gray-500 hover:text-blue-600 transition-colors duration-200">
             <Bell className="h-5 w-5" />
             <span className="text-[10px] mt-1">Notifications</span>
           </button>
@@ -271,8 +283,10 @@ function App() {
 
 function NavItem({ icon, text }: { icon: React.ReactNode; text: string }) {
   return (
-    <button className="flex flex-col items-center text-gray-500 hover:text-blue-600">
-      {icon}
+    <button className="flex flex-col items-center text-gray-500 hover:text-blue-600 transition-colors duration-200 group">
+      <div className="transform group-hover:scale-110 transition-transform duration-200">
+        {icon}
+      </div>
       <span className="text-[10px] md:text-xs mt-1">{text}</span>
     </button>
   );
@@ -280,11 +294,11 @@ function NavItem({ icon, text }: { icon: React.ReactNode; text: string }) {
 
 function QuickAction({ icon, text, description }: { icon: React.ReactNode; text: string; description: string }) {
   return (
-    <button className="w-full flex items-start space-x-3 p-2 md:p-3 rounded-lg hover:bg-gray-50 transition-colors">
-      <div className="text-blue-600">{icon}</div>
-      <div className="text-left">
-        <div className="text-sm md:text-base font-medium">{text}</div>
-        <div className="text-xs md:text-sm text-gray-500">{description}</div>
+    <button className="w-full flex flex-col md:flex-row items-center md:items-start space-y-1 md:space-y-0 md:space-x-3 p-2 md:p-3 rounded-lg hover:bg-blue-50 transition-all duration-200 text-center md:text-left group">
+      <div className="text-blue-600 transform group-hover:scale-110 transition-transform duration-200">{icon}</div>
+      <div>
+        <div className="text-xs md:text-base font-medium group-hover:text-blue-600 transition-colors duration-200">{text}</div>
+        <div className="hidden md:block text-sm text-gray-500">{description}</div>
       </div>
     </button>
   );
@@ -293,29 +307,32 @@ function QuickAction({ icon, text, description }: { icon: React.ReactNode; text:
 function TabButton({ children, active, onClick }: { children: React.ReactNode; active: boolean; onClick: () => void }) {
   return (
     <button
-      className={`px-3 md:px-4 py-2 md:py-3 text-xs md:text-sm font-medium ${
+      className={`px-4 md:px-6 py-3 text-xs md:text-sm font-medium transition-all duration-200 relative ${
         active
-          ? 'border-b-2 border-blue-500 text-blue-600'
-          : 'text-gray-500 hover:text-gray-700'
+          ? 'text-blue-600 bg-blue-50'
+          : 'text-gray-500 hover:text-gray-700 hover:bg-gray-50'
       }`}
       onClick={onClick}
     >
       {children}
+      {active && (
+        <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600 transform scale-x-100 transition-transform duration-200" />
+      )}
     </button>
   );
 }
 
 function NotificationItem({ title, message, time, actionText }: { title: string; message: string; time: string; actionText: string }) {
   return (
-    <div className="p-3 md:p-4 border rounded-lg hover:bg-gray-50">
+    <div className="p-3 md:p-4 border rounded-lg hover:border-blue-200 hover:shadow-md transition-all duration-200">
       <div className="flex items-center justify-between mb-2">
         <h4 className="text-sm md:text-base font-medium">{title}</h4>
         <span className="text-xs text-gray-500">{time}</span>
       </div>
       <p className="text-xs md:text-sm text-gray-600 mb-3">{message}</p>
-      <button className="text-blue-600 text-xs md:text-sm font-medium flex items-center hover:text-blue-700">
+      <button className="text-blue-600 text-xs md:text-sm font-medium flex items-center hover:text-blue-700 transition-colors duration-200 group">
         {actionText}
-        <ArrowRight className="h-3 w-3 md:h-4 md:w-4 ml-1" />
+        <ArrowRight className="h-3 w-3 md:h-4 md:w-4 ml-1 transform group-hover:translate-x-1 transition-transform duration-200" />
       </button>
     </div>
   );
@@ -337,7 +354,7 @@ function Post({
   image?: string;
 }) {
   return (
-    <div className="bg-white rounded-lg shadow mb-4 md:mb-6">
+    <div className="bg-white rounded-lg shadow mb-4 md:mb-6 hover:shadow-md transition-shadow duration-200">
       <div className="p-3 md:p-4">
         <div className="flex items-center space-x-3">
           <div className="h-10 w-10 md:h-12 md:w-12 rounded-full bg-gray-200 flex items-center justify-center">
@@ -354,13 +371,13 @@ function Post({
           <img src={image} alt="Post content" className="mt-3 md:mt-4 rounded-lg w-full object-cover h-48 md:h-64" />
         )}
         <div className="mt-3 md:mt-4 flex items-center space-x-4 text-gray-500">
-          <button className="flex items-center space-x-1 hover:text-blue-600">
+          <button className="flex items-center space-x-1 hover:text-blue-600 transition-colors duration-200">
             <span className="text-xs md:text-sm">Like</span>
           </button>
-          <button className="flex items-center space-x-1 hover:text-blue-600">
+          <button className="flex items-center space-x-1 hover:text-blue-600 transition-colors duration-200">
             <span className="text-xs md:text-sm">Comment</span>
           </button>
-          <button className="flex items-center space-x-1 hover:text-blue-600">
+          <button className="flex items-center space-x-1 hover:text-blue-600 transition-colors duration-200">
             <span className="text-xs md:text-sm">Share</span>
           </button>
         </div>
@@ -383,17 +400,17 @@ function QuoteItem({
   daysLeft: number;
 }) {
   return (
-    <div className="p-3 md:p-4 border rounded-lg hover:bg-gray-50">
-      <div className="flex justify-between items-start mb-2">
+    <div className="p-3 md:p-4 border rounded-lg hover:border-blue-200 hover:shadow-md transition-all duration-200">
+      <div className="flex justify-between items-start">
         <div>
           <h4 className="text-xs md:text-sm text-gray-600">{rfqNumber}</h4>
           <p className="text-xs md:text-sm font-bold text-gray-800">{category}</p>
           <p className="text-[10px] md:text-xs text-gray-500">Created: {dateCreated}</p>
         </div>
-      </div>
-      <div className="flex justify-between items-center mt-3 md:mt-4">
-        <span className="text-xs md:text-sm text-green-600">{responses} Responses</span>
-        <span className="text-xs md:text-sm text-gray-500">{daysLeft} days left</span>
+        <div className="text-right">
+          <span className="text-xs md:text-sm text-green-600 font-medium">{responses} Responses</span>
+          <p className="text-xs md:text-sm text-gray-500 mt-1">{daysLeft} days left</p>
+        </div>
       </div>
     </div>
   );
@@ -401,10 +418,10 @@ function QuoteItem({
 
 function SustainableCategory({ icon, title, count }: { icon: React.ReactNode; title: string; count: number }) {
   return (
-    <div className="flex items-center justify-between p-2 md:p-3 rounded-lg bg-white shadow hover:shadow-md transition-shadow cursor-pointer">
+    <div className="flex items-center justify-between p-2 md:p-3 rounded-lg bg-white shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer group">
       <div className="flex items-center space-x-2 md:space-x-3">
-        <div className="text-green-600">{icon}</div>
-        <span className="text-xs md:text-sm font-medium">{title}</span>
+        <div className="text-green-600 transform group-hover:scale-110 transition-transform duration-200">{icon}</div>
+        <span className="text-xs md:text-sm font-medium group-hover:text-green-600 transition-colors duration-200">{title}</span>
       </div>
       <span className="text-xs md:text-sm text-gray-500">{count}</span>
     </div>
@@ -413,8 +430,8 @@ function SustainableCategory({ icon, title, count }: { icon: React.ReactNode; ti
 
 function DealCard({ title, discount, validUntil }: { title: string; discount: string; validUntil: string }) {
   return (
-    <div className="border-l-4 border-green-500 pl-2 md:pl-3">
-      <h4 className="text-xs md:text-sm font-medium">{title}</h4>
+    <div className="border-l-4 border-green-500 pl-2 md:pl-3 hover:bg-green-50 transition-colors duration-200 rounded-r-lg cursor-pointer group">
+      <h4 className="text-xs md:text-sm font-medium group-hover:text-green-700 transition-colors duration-200">{title}</h4>
       <p className="text-[10px] md:text-xs text-green-600 font-bold">{discount}</p>
       <p className="text-[10px] md:text-xs text-gray-500">{validUntil}</p>
     </div>
@@ -423,9 +440,9 @@ function DealCard({ title, discount, validUntil }: { title: string; discount: st
 
 function RecommendedItem({ name, category, rating }: { name: string; category: string; rating: number }) {
   return (
-    <div className="flex items-center justify-between">
+    <div className="flex items-center justify-between p-2 rounded-lg hover:bg-blue-50 transition-colors duration-200 cursor-pointer group">
       <div>
-        <h4 className="text-xs md:text-sm font-medium">{name}</h4>
+        <h4 className="text-xs md:text-sm font-medium group-hover:text-blue-600 transition-colors duration-200">{name}</h4>
         <p className="text-[10px] md:text-xs text-gray-500">{category}</p>
         <div className="flex items-center mt-1">
           <Star className="h-3 w-3 md:h-4 md:w-4 text-yellow-500 fill-current" />
