@@ -384,15 +384,15 @@ function QuoteItem({
 }) {
   return (
     <div className="p-3 md:p-4 border rounded-lg hover:bg-gray-50">
-      <div className="flex justify-between items-start mb-2">
+      <div className="flex justify-between items-start">
         <div>
           <h4 className="text-xs md:text-sm text-gray-600">{rfqNumber}</h4>
           <p className="text-xs md:text-sm font-bold text-gray-800">{category}</p>
           <p className="text-[10px] md:text-xs text-gray-500">Created: {dateCreated}</p>
         </div>
+        <span className="text-xs md:text-sm text-green-600 font-medium">{responses} Responses</span>
       </div>
-      <div className="flex justify-between items-center mt-3 md:mt-4">
-        <span className="text-xs md:text-sm text-green-600">{responses} Responses</span>
+      <div className="flex justify-end items-center mt-3 md:mt-4">
         <span className="text-xs md:text-sm text-gray-500">{daysLeft} days left</span>
       </div>
     </div>
