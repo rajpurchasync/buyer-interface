@@ -90,12 +90,12 @@ function App() {
                 />
                 <QuickAction 
                   icon={<DollarSign />} 
-                  text="Request Quotation" 
+                  text="Create RFQ" 
                   description="Find the best deals for your needs" 
                 />
                 <QuickAction 
                   icon={<FileText />} 
-                  text="Post a Project" 
+                  text="Manage Quotations" 
                   description="Get quotes from service providers" 
                 />
               </div>
