@@ -59,21 +59,21 @@ function App() {
           {/* Left Sidebar */}
           <div className="md:col-span-1">
             <div className="bg-white rounded-lg shadow p-3 md:p-4">
-              <div className="space-y-2 md:space-y-3">
+              <div className="grid grid-cols-3 gap-2 md:grid-cols-1 md:gap-3">
                 <QuickAction 
                   icon={<Store />} 
                   text="Browse Marketplace" 
-                  description="Browse products and services" 
+                  description="Browse products" 
                 />
                 <QuickAction 
                   icon={<DollarSign />} 
                   text="Create RFQ" 
-                  description="Create new request for quotation" 
+                  description="New RFQ" 
                 />
                 <QuickAction 
                   icon={<LayoutDashboard />} 
                   text="My Dashboard" 
-                  description="View your analytics and activities" 
+                  description="View analytics" 
                 />
               </div>
             </div>
@@ -280,11 +280,11 @@ function NavItem({ icon, text }: { icon: React.ReactNode; text: string }) {
 
 function QuickAction({ icon, text, description }: { icon: React.ReactNode; text: string; description: string }) {
   return (
-    <button className="w-full flex items-start space-x-3 p-2 md:p-3 rounded-lg hover:bg-gray-50 transition-colors">
+    <button className="w-full flex flex-col md:flex-row items-center md:items-start space-y-1 md:space-y-0 md:space-x-3 p-2 md:p-3 rounded-lg hover:bg-gray-50 transition-colors text-center md:text-left">
       <div className="text-blue-600">{icon}</div>
-      <div className="text-left">
-        <div className="text-sm md:text-base font-medium">{text}</div>
-        <div className="text-xs md:text-sm text-gray-500">{description}</div>
+      <div>
+        <div className="text-xs md:text-base font-medium">{text}</div>
+        <div className="text-[10px] md:text-sm text-gray-500">{description}</div>
       </div>
     </button>
   );
