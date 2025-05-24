@@ -31,8 +31,8 @@ function App() {
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-8">
               <div className="flex items-center">
-                <ChefHat className="h-8 w-8 text-blue-600" />
-                <span className="ml-2 text-xl font-bold text-gray-800">Purchasync</span>
+                <ChefHat className="h-6 w-6 md:h-8 md:w-8 text-blue-600" />
+                <span className="ml-2 text-lg md:text-xl font-bold text-gray-800">Purchasync</span>
               </div>
               <div className="hidden md:block">
                 <div className="relative">
@@ -47,7 +47,7 @@ function App() {
             </div>
             
             <div className="flex items-center space-x-6">
-              <NavItem icon={<Bot className="h-6 w-6" />} text="AI Assistant" />
+              <NavItem icon={<Bot className="h-5 w-5 md:h-6 md:w-6" />} text="AI Assistant" />
               <div className="h-8 w-8 rounded-full bg-gray-200 flex items-center justify-center">
                 <User className="h-5 w-5 text-gray-600" />
               </div>
@@ -57,12 +57,12 @@ function App() {
       </nav>
 
       {/* Main Content */}
-      <div className="pt-16 max-w-7xl mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+      <div className="pt-16 max-w-7xl mx-auto px-4 py-6 md:py-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6">
           {/* Left Sidebar */}
           <div className="md:col-span-1">
-            <div className="bg-white rounded-lg shadow p-4">
-              <div className="space-y-3">
+            <div className="bg-white rounded-lg shadow p-3 md:p-4">
+              <div className="space-y-2 md:space-y-3">
                 <QuickAction 
                   icon={<Store />} 
                   text="Browse Marketplace" 
@@ -83,7 +83,7 @@ function App() {
           </div>
 
           {/* Main Feed and Features */}
-          <div className="md:col-span-2 space-y-6">
+          <div className="md:col-span-2 space-y-4 md:space-y-6">
             {/* Content Tabs */}
             <div className="bg-white rounded-lg shadow">
               <div className="flex border-b">
@@ -93,7 +93,7 @@ function App() {
               </div>
 
               {activeTab === 'notifications' && (
-                <div className="p-4 space-y-4">
+                <div className="p-3 md:p-4 space-y-3 md:space-y-4">
                   <NotificationItem
                     title="New Quote Received"
                     message="UAE Restaurant Supply Co. has submitted a quote for your Kitchen Equipment Package"
@@ -116,17 +116,17 @@ function App() {
               )}
 
               {activeTab === 'feed' && (
-                <div className="p-4">
+                <div className="p-3 md:p-4">
                   {/* Post Creation */}
-                  <div className="mb-6">
+                  <div className="mb-4 md:mb-6">
                     <div className="flex items-center space-x-4">
-                      <div className="h-12 w-12 rounded-full bg-gray-200 flex items-center justify-center">
-                        <User className="h-6 w-6 text-gray-600" />
+                      <div className="h-10 w-10 md:h-12 md:w-12 rounded-full bg-gray-200 flex items-center justify-center">
+                        <User className="h-5 w-5 md:h-6 md:w-6 text-gray-600" />
                       </div>
                       <input
                         type="text"
                         placeholder="Share your thoughts..."
-                        className="flex-1 rounded-full border border-gray-300 px-4 py-2 focus:outline-none focus:border-blue-500"
+                        className="flex-1 rounded-full border border-gray-300 px-4 py-2 text-sm focus:outline-none focus:border-blue-500"
                       />
                     </div>
                   </div>
@@ -153,7 +153,7 @@ function App() {
               )}
 
               {activeTab === 'myquotes' && (
-                <div className="p-4 space-y-4">
+                <div className="p-3 md:p-4 space-y-3 md:space-y-4">
                   <QuoteItem
                     rfqNumber="RFQ-2025-001"
                     dateCreated="2025-02-10"
@@ -181,23 +181,23 @@ function App() {
           </div>
 
           {/* Right Sidebar */}
-          <div className="md:col-span-1 space-y-6">
+          <div className="md:col-span-1 space-y-4 md:space-y-6">
             {/* Sustainable Solutions */}
-            <div className="bg-white rounded-lg shadow p-4">
-              <h3 className="font-semibold mb-4">Sustainable Solutions</h3>
-              <div className="space-y-4">
+            <div className="bg-white rounded-lg shadow p-3 md:p-4">
+              <h3 className="text-sm md:text-base font-semibold mb-3 md:mb-4">Sustainable Solutions</h3>
+              <div className="space-y-3 md:space-y-4">
                 <SustainableCategory
-                  icon={<Leaf className="h-5 w-5" />}
+                  icon={<Leaf className="h-4 w-4 md:h-5 md:w-5" />}
                   title="Made in UAE Products"
                   count={245}
                 />
                 <SustainableCategory
-                  icon={<Recycle className="h-5 w-5" />}
+                  icon={<Recycle className="h-4 w-4 md:h-5 md:w-5" />}
                   title="Single-use Plastic Alternatives"
                   count={128}
                 />
                 <SustainableCategory
-                  icon={<Sun className="h-5 w-5" />}
+                  icon={<Sun className="h-4 w-4 md:h-5 md:w-5" />}
                   title="Waste Management Solutions"
                   count={167}
                 />
@@ -205,9 +205,9 @@ function App() {
             </div>
 
             {/* Top Deals */}
-            <div className="bg-white rounded-lg shadow p-4">
-              <h3 className="font-semibold mb-4">Top Deals</h3>
-              <div className="space-y-4">
+            <div className="bg-white rounded-lg shadow p-3 md:p-4">
+              <h3 className="text-sm md:text-base font-semibold mb-3 md:mb-4">Top Deals</h3>
+              <div className="space-y-3 md:space-y-4">
                 <DealCard
                   title="Commercial Kitchen Package"
                   discount="25% OFF"
@@ -222,9 +222,9 @@ function App() {
             </div>
 
             {/* Recommended for me */}
-            <div className="bg-white rounded-lg shadow p-4">
-              <h3 className="font-semibold mb-4">Recommended for me</h3>
-              <div className="space-y-4">
+            <div className="bg-white rounded-lg shadow p-3 md:p-4">
+              <h3 className="text-sm md:text-base font-semibold mb-3 md:mb-4">Recommended for me</h3>
+              <div className="space-y-3 md:space-y-4">
                 <RecommendedItem
                   name="Premium Coffee Machines"
                   category="Equipment"
@@ -245,26 +245,26 @@ function App() {
       <div className="fixed bottom-0 left-0 right-0 bg-white border-t md:hidden">
         <div className="flex justify-around items-center h-16">
           <button className="flex flex-col items-center text-gray-500 hover:text-blue-600">
-            <Home className="h-6 w-6" />
-            <span className="text-xs mt-1">Home</span>
+            <Home className="h-5 w-5" />
+            <span className="text-[10px] mt-1">Home</span>
           </button>
           <button className="flex flex-col items-center text-gray-500 hover:text-blue-600">
-            <MessageSquare className="h-6 w-6" />
-            <span className="text-xs mt-1">Message</span>
+            <MessageSquare className="h-5 w-5" />
+            <span className="text-[10px] mt-1">Message</span>
           </button>
           <button className="flex flex-col items-center justify-center -mt-6">
             <div className="bg-blue-600 rounded-full p-3">
-              <PlusCircle className="h-8 w-8 text-white" />
+              <PlusCircle className="h-6 w-6 text-white" />
             </div>
-            <span className="text-xs mt-1 text-blue-600">RFQ</span>
+            <span className="text-[10px] mt-1 text-blue-600">RFQ</span>
           </button>
           <button className="flex flex-col items-center text-gray-500 hover:text-blue-600">
-            <BookmarkIcon className="h-6 w-6" />
-            <span className="text-xs mt-1">Saved</span>
+            <BookmarkIcon className="h-5 w-5" />
+            <span className="text-[10px] mt-1">Saved</span>
           </button>
           <button className="flex flex-col items-center text-gray-500 hover:text-blue-600">
-            <Bell className="h-6 w-6" />
-            <span className="text-xs mt-1">Notifications</span>
+            <Bell className="h-5 w-5" />
+            <span className="text-[10px] mt-1">Notifications</span>
           </button>
         </div>
       </div>
@@ -276,18 +276,18 @@ function NavItem({ icon, text }: { icon: React.ReactNode; text: string }) {
   return (
     <button className="flex flex-col items-center text-gray-500 hover:text-blue-600">
       {icon}
-      <span className="text-xs mt-1">{text}</span>
+      <span className="text-[10px] md:text-xs mt-1">{text}</span>
     </button>
   );
 }
 
 function QuickAction({ icon, text, description }: { icon: React.ReactNode; text: string; description: string }) {
   return (
-    <button className="w-full flex items-start space-x-3 p-3 rounded-lg hover:bg-gray-50 transition-colors">
+    <button className="w-full flex items-start space-x-3 p-2 md:p-3 rounded-lg hover:bg-gray-50 transition-colors">
       <div className="text-blue-600">{icon}</div>
       <div className="text-left">
-        <div className="font-medium">{text}</div>
-        <div className="text-sm text-gray-500">{description}</div>
+        <div className="text-sm md:text-base font-medium">{text}</div>
+        <div className="text-xs md:text-sm text-gray-500">{description}</div>
       </div>
     </button>
   );
@@ -296,7 +296,7 @@ function QuickAction({ icon, text, description }: { icon: React.ReactNode; text:
 function TabButton({ children, active, onClick }: { children: React.ReactNode; active: boolean; onClick: () => void }) {
   return (
     <button
-      className={`px-4 py-3 text-sm font-medium ${
+      className={`px-3 md:px-4 py-2 md:py-3 text-xs md:text-sm font-medium ${
         active
           ? 'border-b-2 border-blue-500 text-blue-600'
           : 'text-gray-500 hover:text-gray-700'
@@ -310,15 +310,15 @@ function TabButton({ children, active, onClick }: { children: React.ReactNode; a
 
 function NotificationItem({ title, message, time, actionText }: { title: string; message: string; time: string; actionText: string }) {
   return (
-    <div className="p-4 border rounded-lg hover:bg-gray-50">
+    <div className="p-3 md:p-4 border rounded-lg hover:bg-gray-50">
       <div className="flex items-center justify-between mb-2">
-        <h4 className="font-medium">{title}</h4>
-        <span className="text-sm text-gray-500">{time}</span>
+        <h4 className="text-sm md:text-base font-medium">{title}</h4>
+        <span className="text-xs text-gray-500">{time}</span>
       </div>
-      <p className="text-gray-600 text-sm mb-3">{message}</p>
-      <button className="text-blue-600 text-sm font-medium flex items-center hover:text-blue-700">
+      <p className="text-xs md:text-sm text-gray-600 mb-3">{message}</p>
+      <button className="text-blue-600 text-xs md:text-sm font-medium flex items-center hover:text-blue-700">
         {actionText}
-        <ArrowRight className="h-4 w-4 ml-1" />
+        <ArrowRight className="h-3 w-3 md:h-4 md:w-4 ml-1" />
       </button>
     </div>
   );
@@ -340,31 +340,31 @@ function Post({
   image?: string;
 }) {
   return (
-    <div className="bg-white rounded-lg shadow mb-6">
-      <div className="p-4">
+    <div className="bg-white rounded-lg shadow mb-4 md:mb-6">
+      <div className="p-3 md:p-4">
         <div className="flex items-center space-x-3">
-          <div className="h-12 w-12 rounded-full bg-gray-200 flex items-center justify-center">
-            <User className="h-6 w-6 text-gray-600" />
+          <div className="h-10 w-10 md:h-12 md:w-12 rounded-full bg-gray-200 flex items-center justify-center">
+            <User className="h-5 w-5 md:h-6 md:w-6 text-gray-600" />
           </div>
           <div>
-            <h3 className="font-semibold">{name}</h3>
-            <p className="text-sm text-gray-600">{position} at {company}</p>
-            <p className="text-xs text-gray-500">{time}</p>
+            <h3 className="text-sm md:text-base font-semibold">{name}</h3>
+            <p className="text-xs md:text-sm text-gray-600">{position} at {company}</p>
+            <p className="text-[10px] md:text-xs text-gray-500">{time}</p>
           </div>
         </div>
-        <p className="mt-4">{content}</p>
+        <p className="mt-3 md:mt-4 text-sm md:text-base">{content}</p>
         {image && (
-          <img src={image} alt="Post content" className="mt-4 rounded-lg w-full object-cover h-64" />
+          <img src={image} alt="Post content" className="mt-3 md:mt-4 rounded-lg w-full object-cover h-48 md:h-64" />
         )}
-        <div className="mt-4 flex items-center space-x-4 text-gray-500">
+        <div className="mt-3 md:mt-4 flex items-center space-x-4 text-gray-500">
           <button className="flex items-center space-x-1 hover:text-blue-600">
-            <span>Like</span>
+            <span className="text-xs md:text-sm">Like</span>
           </button>
           <button className="flex items-center space-x-1 hover:text-blue-600">
-            <span>Comment</span>
+            <span className="text-xs md:text-sm">Comment</span>
           </button>
           <button className="flex items-center space-x-1 hover:text-blue-600">
-            <span>Share</span>
+            <span className="text-xs md:text-sm">Share</span>
           </button>
         </div>
       </div>
@@ -386,17 +386,17 @@ function QuoteItem({
   daysLeft: number;
 }) {
   return (
-    <div className="p-4 border rounded-lg hover:bg-gray-50">
+    <div className="p-3 md:p-4 border rounded-lg hover:bg-gray-50">
       <div className="flex justify-between items-start mb-2">
         <div>
-          <h4 className="text-gray-600">{rfqNumber}</h4>
-          <p className="text-sm font-bold text-gray-800">{category}</p>
-          <p className="text-sm text-gray-500">Created: {dateCreated}</p>
+          <h4 className="text-xs md:text-sm text-gray-600">{rfqNumber}</h4>
+          <p className="text-xs md:text-sm font-bold text-gray-800">{category}</p>
+          <p className="text-[10px] md:text-xs text-gray-500">Created: {dateCreated}</p>
         </div>
       </div>
-      <div className="flex justify-between items-center mt-4">
-        <span className="text-sm text-green-600">{responses} Responses</span>
-        <span className="text-sm text-gray-500">{daysLeft} days left</span>
+      <div className="flex justify-between items-center mt-3 md:mt-4">
+        <span className="text-xs md:text-sm text-green-600">{responses} Responses</span>
+        <span className="text-xs md:text-sm text-gray-500">{daysLeft} days left</span>
       </div>
     </div>
   );
@@ -404,22 +404,22 @@ function QuoteItem({
 
 function SustainableCategory({ icon, title, count }: { icon: React.ReactNode; title: string; count: number }) {
   return (
-    <div className="flex items-center justify-between p-3 rounded-lg bg-white shadow hover:shadow-md transition-shadow cursor-pointer">
-      <div className="flex items-center space-x-3">
+    <div className="flex items-center justify-between p-2 md:p-3 rounded-lg bg-white shadow hover:shadow-md transition-shadow cursor-pointer">
+      <div className="flex items-center space-x-2 md:space-x-3">
         <div className="text-green-600">{icon}</div>
-        <span className="font-medium text-sm">{title}</span>
+        <span className="text-xs md:text-sm font-medium">{title}</span>
       </div>
-      <span className="text-sm text-gray-500">{count}</span>
+      <span className="text-xs md:text-sm text-gray-500">{count}</span>
     </div>
   );
 }
 
 function DealCard({ title, discount, validUntil }: { title: string; discount: string; validUntil: string }) {
   return (
-    <div className="border-l-4 border-green-500 pl-3">
-      <h4 className="font-medium text-sm">{title}</h4>
-      <p className="text-xs text-green-600 font-bold">{discount}</p>
-      <p className="text-xs text-gray-500">{validUntil}</p>
+    <div className="border-l-4 border-green-500 pl-2 md:pl-3">
+      <h4 className="text-xs md:text-sm font-medium">{title}</h4>
+      <p className="text-[10px] md:text-xs text-green-600 font-bold">{discount}</p>
+      <p className="text-[10px] md:text-xs text-gray-500">{validUntil}</p>
     </div>
   );
 }
@@ -428,11 +428,11 @@ function RecommendedItem({ name, category, rating }: { name: string; category: s
   return (
     <div className="flex items-center justify-between">
       <div>
-        <h4 className="font-medium text-sm">{name}</h4>
-        <p className="text-xs text-gray-500">{category}</p>
+        <h4 className="text-xs md:text-sm font-medium">{name}</h4>
+        <p className="text-[10px] md:text-xs text-gray-500">{category}</p>
         <div className="flex items-center mt-1">
-          <Star className="h-4 w-4 text-yellow-500 fill-current" />
-          <span className="text-xs ml-1">{rating}</span>
+          <Star className="h-3 w-3 md:h-4 md:w-4 text-yellow-500 fill-current" />
+          <span className="text-[10px] md:text-xs ml-1">{rating}</span>
         </div>
       </div>
     </div>
