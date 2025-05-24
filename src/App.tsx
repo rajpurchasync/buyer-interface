@@ -93,7 +93,7 @@ function App() {
                 />
                 <QuickAction 
                   icon={<FileText />} 
-                  text="My Quotes" 
+                  text="Manage Quotes" 
                   description="Review and manage your quotations" 
                 />
                 <QuickAction 
