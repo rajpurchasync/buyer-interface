@@ -50,23 +50,23 @@ function App() {
               <NavItem icon={<Bot className="h-5 w-5 md:h-6 md:w-6" />} text="AI Assistant" />
             </div>
           </div>
-          
-          {/* Mobile Search Bar */}
-          <div className="md:hidden pb-3">
-            <div className="relative">
-              <input
-                type="text"
-                placeholder="Search products, suppliers..."
-                className="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500 text-sm"
-              />
-              <Search className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
-            </div>
-          </div>
         </div>
       </nav>
 
+      {/* Mobile Search Bar - Separate fixed position */}
+      <div className="md:hidden fixed top-16 left-0 right-0 bg-white z-40 px-4 py-3 shadow-sm">
+        <div className="relative">
+          <input
+            type="text"
+            placeholder="Search products, suppliers..."
+            className="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500 text-sm"
+          />
+          <Search className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
+        </div>
+      </div>
+
       {/* Main Content */}
-      <main className="relative pt-24 md:pt-20 max-w-7xl mx-auto px-4 pb-6 md:pb-8">
+      <main className="relative pt-32 md:pt-20 max-w-7xl mx-auto px-4 pb-6 md:pb-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6">
           {/* Left Sidebar */}
           <div className="md:col-span-1">
