@@ -65,7 +65,7 @@ function App() {
               <div className="space-y-3">
                 <QuickAction 
                   icon={<Store />} 
-                  text="Go to Marketplace" 
+                  text="Browse Marketplace" 
                   description="Browse products and services" 
                 />
                 <QuickAction 
