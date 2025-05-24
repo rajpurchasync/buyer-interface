@@ -232,23 +232,6 @@ function App() {
               </div>
             </div>
 
-            {/* Upcoming Events */}
-            <div className="bg-white rounded-lg shadow p-4">
-              <h3 className="font-semibold mb-4">Upcoming Events</h3>
-              <div className="space-y-4">
-                <MiniEventCard
-                  title="Gulfood 2025"
-                  date="Feb 15-19"
-                  location="Dubai"
-                />
-                <MiniEventCard
-                  title="Hospitality Procurement Forum"
-                  date="Apr 5"
-                  location="Dubai"
-                />
-              </div>
-            </div>
-
             {/* Top Deals */}
             <div className="bg-white rounded-lg shadow p-4">
               <h3 className="font-semibold mb-4">Top Deals</h3>
