@@ -71,7 +71,7 @@ function App() {
                 />
                 <div>
                   <h2 className="text-xl font-bold">Rajkumar Dhakal</h2>
-                  <p className="text-gray-600">Procurement Head at The Hotel Group</p>
+                  <p className="text-gray-600">Procurement Head The Hotel Group</p>
                   <p className="text-sm text-gray-500 mt-2">Dubai, UAE</p>
                 </div>
               </div>
