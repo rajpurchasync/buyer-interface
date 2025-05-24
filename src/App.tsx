@@ -48,7 +48,6 @@ function App() {
             <div className="flex items-center space-x-6">
               <NavItem icon={<Home className="h-6 w-6" />} text="Home" />
               <NavItem icon={<Store className="h-6 w-6" />} text="Marketplace" />
-              <NavItem icon={<Calendar className="h-6 w-6" />} text="Events" />
               <NavItem icon={<Bell className="h-6 w-6" />} text="Notifications" />
               <NavItem icon={<MessageSquare className="h-6 w-6" />} text="Messages" />
               <NavItem icon={<Bot className="h-6 w-6" />} text="AI Assistant" />
