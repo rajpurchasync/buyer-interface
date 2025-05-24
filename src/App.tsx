@@ -390,10 +390,10 @@ function QuoteItem({
           <p className="text-xs md:text-sm font-bold text-gray-800">{category}</p>
           <p className="text-[10px] md:text-xs text-gray-500">Created: {dateCreated}</p>
         </div>
-        <span className="text-xs md:text-sm text-green-600 font-medium">{responses} Responses</span>
-      </div>
-      <div className="flex justify-end items-center mt-3 md:mt-4">
-        <span className="text-xs md:text-sm text-gray-500">{daysLeft} days left</span>
+        <div className="text-right">
+          <span className="text-xs md:text-sm text-green-600 font-medium">{responses} Responses</span>
+          <p className="text-xs md:text-sm text-gray-500 mt-1">{daysLeft} days left</p>
+        </div>
       </div>
     </div>
   );
