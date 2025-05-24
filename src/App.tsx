@@ -6,7 +6,6 @@ import {
   ChefHat,
   Home,
   User,
-  Store,
   Star,
   DollarSign,
   FileText,
@@ -14,7 +13,9 @@ import {
   Leaf,
   Recycle,
   Sun,
-  Bot
+  Bot,
+  Store,
+  ArrowRight
 } from 'lucide-react';
 
 function App() {
@@ -45,7 +46,6 @@ function App() {
             
             <div className="flex items-center space-x-6">
               <NavItem icon={<Home className="h-6 w-6" />} text="Home" />
-              <NavItem icon={<Store className="h-6 w-6" />} text="Marketplace" />
               <NavItem icon={<Bell className="h-6 w-6" />} text="Notifications" />
               <NavItem icon={<MessageSquare className="h-6 w-6" />} text="Messages" />
               <NavItem icon={<Bot className="h-6 w-6" />} text="AI Assistant" />
@@ -82,18 +82,18 @@ function App() {
               <h3 className="font-semibold mb-4">Quick Actions</h3>
               <div className="space-y-3">
                 <QuickAction 
+                  icon={<Store />} 
+                  text="Go to Marketplace" 
+                  description="Browse products and services" 
+                />
+                <QuickAction 
                   icon={<DollarSign />} 
                   text="Create RFQ" 
                   description="Create new request for quotation" 
                 />
                 <QuickAction 
-                  icon={<FileText />} 
-                  text="Manage Quotes" 
-                  description="Review and manage your quotations" 
-                />
-                <QuickAction 
                   icon={<LayoutDashboard />} 
-                  text="Dashboard" 
+                  text="My Dashboard" 
                   description="View your analytics and activities" 
                 />
               </div>
@@ -105,9 +105,9 @@ function App() {
             {/* Content Tabs */}
             <div className="bg-white rounded-lg shadow">
               <div className="flex border-b">
-                  <TabButton active={activeTab === 'notifications'} onClick={() => setActiveTab('notifications')}>Notifications</TabButton>
+                <TabButton active={activeTab === 'notifications'} onClick={() => setActiveTab('notifications')}>Notifications</TabButton>
                 <TabButton active={activeTab === 'myquotes'} onClick={() => setActiveTab('myquotes')}>My Quotes</TabButton>
-                     <TabButton active={activeTab === 'feed'} onClick={() => setActiveTab('feed')}>Community</TabButton>
+                <TabButton active={activeTab === 'feed'} onClick={() => setActiveTab('feed')}>Community</TabButton>
               </div>
 
               {activeTab === 'notifications' && (
@@ -116,16 +116,19 @@ function App() {
                     title="New Quote Received"
                     message="UAE Restaurant Supply Co. has submitted a quote for your Kitchen Equipment Package"
                     time="2 hours ago"
+                    actionText="View Quote"
                   />
                   <NotificationItem
                     title="Event Reminder"
                     message="Gulfood 2025 starts in 3 days. Don't forget to check your schedule!"
                     time="5 hours ago"
+                    actionText="View Event"
                   />
                   <NotificationItem
                     title="Price Alert"
                     message="Price drop alert for bulk coffee supplies in your watchlist"
                     time="Yesterday"
+                    actionText="View Details"
                   />
                 </div>
               )}
@@ -295,14 +298,18 @@ function TabButton({ children, active, onClick }: { children: React.ReactNode; a
   );
 }
 
-function NotificationItem({ title, message, time }: { title: string; message: string; time: string }) {
+function NotificationItem({ title, message, time, actionText }: { title: string; message: string; time: string; actionText: string }) {
   return (
     <div className="p-4 border rounded-lg hover:bg-gray-50">
       <div className="flex items-center justify-between mb-2">
         <h4 className="font-medium">{title}</h4>
         <span className="text-sm text-gray-500">{time}</span>
       </div>
-      <p className="text-gray-600 text-sm">{message}</p>
+      <p className="text-gray-600 text-sm mb-3">{message}</p>
+      <button className="text-blue-600 text-sm font-medium flex items-center hover:text-blue-700">
+        {actionText}
+        <ArrowRight className="h-4 w-4 ml-1" />
+      </button>
     </div>
   );
 }
@@ -373,9 +380,13 @@ function QuoteItem({
       <div className="flex justify-between items-start mb-2">
         <div>
           <h4 className="font-medium text-blue-600">{rfqNumber}</h4>
+          <p className="text-sm text-gray-600">{category}</p>
           <p className="text-sm text-gray-500">Created: {dateCreated}</p>
         </div>
-        <span className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">{category}</span>
+        <button className="text-blue-600 text-sm font-medium flex items-center hover:text-blue-700">
+          View Details
+          <ArrowRight className="h-4 w-4 ml-1" />
+        </button>
       </div>
       <div className="flex justify-between items-center mt-4">
         <span className="text-sm text-green-600">{responses} Responses</span>
