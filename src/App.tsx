@@ -15,14 +15,16 @@ import {
   Sun,
   Bot,
   Store,
-  ArrowRight
+  ArrowRight,
+  BookmarkIcon,
+  PlusCircle
 } from 'lucide-react';
 
 function App() {
   const [activeTab, setActiveTab] = useState('notifications');
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-gray-100 pb-16 md:pb-0">
       {/* Navigation Bar */}
       <nav className="bg-white shadow-md fixed w-full z-10">
         <div className="max-w-7xl mx-auto px-4">
@@ -45,9 +47,6 @@ function App() {
             </div>
             
             <div className="flex items-center space-x-6">
-              <NavItem icon={<Home className="h-6 w-6" />} text="Home" />
-              <NavItem icon={<Bell className="h-6 w-6" />} text="Notifications" />
-              <NavItem icon={<MessageSquare className="h-6 w-6" />} text="Messages" />
               <NavItem icon={<Bot className="h-6 w-6" />} text="AI Assistant" />
               <div className="h-8 w-8 rounded-full bg-gray-200 flex items-center justify-center">
                 <User className="h-5 w-5 text-gray-600" />
@@ -62,7 +61,6 @@ function App() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
           {/* Left Sidebar */}
           <div className="md:col-span-1">
-            {/* Quick Actions */}
             <div className="bg-white rounded-lg shadow p-4">
               <div className="space-y-3">
                 <QuickAction 
@@ -247,6 +245,34 @@ function App() {
           </div>
         </div>
       </div>
+
+      {/* Mobile Bottom Navigation */}
+      <div className="fixed bottom-0 left-0 right-0 bg-white border-t md:hidden">
+        <div className="flex justify-around items-center h-16">
+          <button className="flex flex-col items-center text-gray-500 hover:text-blue-600">
+            <Home className="h-6 w-6" />
+            <span className="text-xs mt-1">Home</span>
+          </button>
+          <button className="flex flex-col items-center text-gray-500 hover:text-blue-600">
+            <MessageSquare className="h-6 w-6" />
+            <span className="text-xs mt-1">Message</span>
+          </button>
+          <button className="flex flex-col items-center justify-center -mt-6">
+            <div className="bg-blue-600 rounded-full p-3">
+              <PlusCircle className="h-8 w-8 text-white" />
+            </div>
+            <span className="text-xs mt-1 text-blue-600">RFQ</span>
+          </button>
+          <button className="flex flex-col items-center text-gray-500 hover:text-blue-600">
+            <BookmarkIcon className="h-6 w-6" />
+            <span className="text-xs mt-1">Saved</span>
+          </button>
+          <button className="flex flex-col items-center text-gray-500 hover:text-blue-600">
+            <Bell className="h-6 w-6" />
+            <span className="text-xs mt-1">Notifications</span>
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
@@ -368,14 +394,10 @@ function QuoteItem({
     <div className="p-4 border rounded-lg hover:bg-gray-50">
       <div className="flex justify-between items-start mb-2">
         <div>
-          <h4 className="text-gray-800">{rfqNumber}</h4>
-          <p className="text-sm font-semibold text-gray-800">{category}</p>
+          <h4 className="text-gray-600">{rfqNumber}</h4>
+          <p className="text-sm font-bold text-gray-800">{category}</p>
           <p className="text-sm text-gray-500">Created: {dateCreated}</p>
         </div>
-        <button className="text-blue-600 text-sm font-medium flex items-center hover:text-blue-700">
-          View Details
-          <ArrowRight className="h-4 w-4 ml-1" />
-        </button>
       </div>
       <div className="flex justify-between items-center mt-4">
         <span className="text-sm text-green-600">{responses} Responses</span>
