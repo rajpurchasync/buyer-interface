@@ -88,7 +88,7 @@ function App() {
                 />
                 <QuickAction 
                   icon={<DollarSign />} 
-                  text="Create RFQ" 
+                  text="Create Quote Request" 
                   description="Create new request for quotation" 
                 />
                 <QuickAction 
