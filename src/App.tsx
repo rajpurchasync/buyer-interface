@@ -26,7 +26,7 @@ function App() {
   return (
     <div className="min-h-screen bg-gray-100 pb-16 md:pb-0">
       {/* Navigation Bar */}
-      <nav className="bg-white shadow-md fixed w-full z-50">
+      <nav className="bg-white shadow-md fixed top-0 left-0 right-0 w-full z-50">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-8">
@@ -54,7 +54,7 @@ function App() {
       </nav>
 
       {/* Main Content */}
-      <div className="pt-20 max-w-7xl mx-auto px-4 py-6 md:py-8">
+      <main className="relative pt-16 mt-4 max-w-7xl mx-auto px-4 py-6 md:py-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6">
           {/* Left Sidebar */}
           <div className="md:col-span-1">
@@ -236,7 +236,7 @@ function App() {
             </div>
           </div>
         </div>
-      </div>
+      </main>
 
       {/* Mobile Bottom Navigation */}
       <div className="fixed bottom-0 left-0 right-0 bg-white border-t md:hidden z-50">
