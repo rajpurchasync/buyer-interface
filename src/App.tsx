@@ -63,17 +63,17 @@ function App() {
                 <QuickAction 
                   icon={<Store />} 
                   text="Browse Marketplace" 
-                  description="Browse products" 
+                  description="Browse products and services" 
                 />
                 <QuickAction 
                   icon={<DollarSign />} 
                   text="Create RFQ" 
-                  description="New RFQ" 
+                  description="Create new request for quotation" 
                 />
                 <QuickAction 
                   icon={<LayoutDashboard />} 
                   text="My Dashboard" 
-                  description="View analytics" 
+                  description="View your analytics and activities" 
                 />
               </div>
             </div>
@@ -284,7 +284,7 @@ function QuickAction({ icon, text, description }: { icon: React.ReactNode; text:
       <div className="text-blue-600">{icon}</div>
       <div>
         <div className="text-xs md:text-base font-medium">{text}</div>
-        <div className="text-[10px] md:text-sm text-gray-500">{description}</div>
+        <div className="hidden md:block text-sm text-gray-500">{description}</div>
       </div>
     </button>
   );
