@@ -7,7 +7,6 @@ import {
   Home,
   User,
   Store,
-  Calendar,
   Star,
   DollarSign,
   FileText,
@@ -15,7 +14,6 @@ import {
   Leaf,
   Recycle,
   Sun,
-  History,
   Bot
 } from 'lucide-react';
 
@@ -84,19 +82,19 @@ function App() {
               <h3 className="font-semibold mb-4">Quick Actions</h3>
               <div className="space-y-3">
                 <QuickAction 
-                  icon={<LayoutDashboard />} 
-                  text="My Dashboard" 
-                  description="View your analytics and activities" 
-                />
-                <QuickAction 
                   icon={<DollarSign />} 
                   text="Create RFQ" 
-                  description="Find the best deals for your needs" 
+                  description="Create new request for quotation" 
                 />
                 <QuickAction 
                   icon={<FileText />} 
-                  text="Manage Quotations" 
-                  description="Get quotes from service providers" 
+                  text="Manage Quotes" 
+                  description="Review and manage your quotations" 
+                />
+                <QuickAction 
+                  icon={<LayoutDashboard />} 
+                  text="Dashboard" 
+                  description="View your analytics and activities" 
                 />
               </div>
             </div>
@@ -107,10 +105,9 @@ function App() {
             {/* Content Tabs */}
             <div className="bg-white rounded-lg shadow">
               <div className="flex border-b">
-                <TabButton active={activeTab === 'feed'} onClick={() => setActiveTab('feed')}>Community</TabButton>
-                <TabButton active={activeTab === 'notifications'} onClick={() => setActiveTab('notifications')}>Notifications</TabButton>
                 <TabButton active={activeTab === 'myquotes'} onClick={() => setActiveTab('myquotes')}>My Quotes</TabButton>
-                <TabButton active={activeTab === 'recent'} onClick={() => setActiveTab('recent')}>Recent Searches</TabButton>
+                <TabButton active={activeTab === 'notifications'} onClick={() => setActiveTab('notifications')}>Notifications</TabButton>
+                <TabButton active={activeTab === 'feed'} onClick={() => setActiveTab('feed')}>Community</TabButton>
               </div>
 
               {activeTab === 'notifications' && (
@@ -173,36 +170,29 @@ function App() {
               {activeTab === 'myquotes' && (
                 <div className="p-4 space-y-4">
                   <QuoteItem
+                    rfqNumber="RFQ-2025-001"
+                    dateCreated="2025-02-10"
                     title="Commercial Kitchen Equipment"
-                    budget="AED 50,000 - 75,000"
+                    category="Equipment"
                     responses={3}
-                    deadline="2 days left"
+                    daysLeft={2}
                   />
                   <QuoteItem
+                    rfqNumber="RFQ-2025-002"
+                    dateCreated="2025-02-08"
                     title="Monthly Produce Supply"
-                    budget="AED 25,000 - 30,000"
+                    category="Food & Beverage"
                     responses={5}
-                    deadline="4 days left"
+                    daysLeft={4}
                   />
-                </div>
-              )}
-
-              {activeTab === 'recent' && (
-                <div className="p-4">
-                  <div className="space-y-4">
-                    <RecentSearchItem
-                      text="Commercial dishwashers UAE"
-                      date="2 hours ago"
-                    />
-                    <RecentSearchItem
-                      text="Bulk coffee suppliers Dubai"
-                      date="Yesterday"
-                    />
-                    <RecentSearchItem
-                      text="Eco-friendly packaging wholesale"
-                      date="3 days ago"
-                    />
-                  </div>
+                  <QuoteItem
+                    rfqNumber="RFQ-2025-003"
+                    dateCreated="2025-02-05"
+                    title="Cleaning Supplies"
+                    category="Housekeeping"
+                    responses={8}
+                    daysLeft={1}
+                  />
                 </div>
               )}
             </div>
@@ -368,27 +358,35 @@ function Post({
   );
 }
 
-function QuoteItem({ title, budget, responses, deadline }: { title: string; budget: string; responses: number; deadline: string }) {
+function QuoteItem({ 
+  rfqNumber, 
+  dateCreated, 
+  title, 
+  category, 
+  responses, 
+  daysLeft 
+}: { 
+  rfqNumber: string;
+  dateCreated: string;
+  title: string;
+  category: string;
+  responses: number;
+  daysLeft: number;
+}) {
   return (
     <div className="p-4 border rounded-lg hover:bg-gray-50">
-      <h4 className="font-medium">{title}</h4>
-      <p className="text-sm text-gray-600 mt-1">Budget: {budget}</p>
-      <div className="flex justify-between mt-2">
+      <div className="flex justify-between items-start mb-2">
+        <div>
+          <h4 className="font-medium text-blue-600">{rfqNumber}</h4>
+          <p className="text-sm text-gray-500">Created: {dateCreated}</p>
+        </div>
+        <span className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">{category}</span>
+      </div>
+      <h3 className="font-medium text-gray-900 mb-2">{title}</h3>
+      <div className="flex justify-between items-center">
         <span className="text-sm text-green-600">{responses} Responses</span>
-        <span className="text-sm text-gray-500">{deadline}</span>
+        <span className="text-sm text-gray-500">{daysLeft} days left</span>
       </div>
-    </div>
-  );
-}
-
-function RecentSearchItem({ text, date }: { text: string; date: string }) {
-  return (
-    <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-      <div className="flex items-center">
-        <History className="h-5 w-5 text-gray-400 mr-3" />
-        <span className="text-gray-700">{text}</span>
-      </div>
-      <span className="text-sm text-gray-500">{date}</span>
     </div>
   );
 }
@@ -401,20 +399,6 @@ function SustainableCategory({ icon, title, count }: { icon: React.ReactNode; ti
         <span className="font-medium text-sm">{title}</span>
       </div>
       <span className="text-sm text-gray-500">{count}</span>
-    </div>
-  );
-}
-
-function MiniEventCard({ title, date, location }: { title: string; date: string; location: string }) {
-  return (
-    <div className="flex items-center space-x-3">
-      <div className="bg-blue-100 rounded-lg p-2">
-        <Calendar className="h-5 w-5 text-blue-600" />
-      </div>
-      <div>
-        <h4 className="font-medium text-sm">{title}</h4>
-        <p className="text-xs text-gray-500">{date} • {location}</p>
-      </div>
     </div>
   );
 }
