@@ -29,3 +29,5 @@ function QuoteItem({
     </div>
   );
 }
+
+export default QuoteItem
