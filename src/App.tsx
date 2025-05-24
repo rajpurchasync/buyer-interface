@@ -98,7 +98,7 @@ function App() {
                 />
                 <QuickAction 
                   icon={<LayoutDashboard />} 
-                  text="My Dashboard" 
+                  text="Dashboard" 
                   description="View your analytics and activities" 
                 />
               </div>
