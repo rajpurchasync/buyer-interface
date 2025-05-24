@@ -108,7 +108,7 @@ function App() {
             {/* Content Tabs */}
             <div className="bg-white rounded-lg shadow">
               <div className="flex border-b">
-                <TabButton active={activeTab === 'feed'} onClick={() => setActiveTab('feed')}>Feed</TabButton>
+                <TabButton active={activeTab === 'feed'} onClick={() => setActiveTab('feed')}>Community</TabButton>
                 <TabButton active={activeTab === 'notifications'} onClick={() => setActiveTab('notifications')}>Notifications</TabButton>
                 <TabButton active={activeTab === 'myquotes'} onClick={() => setActiveTab('myquotes')}>My Quotes</TabButton>
                 <TabButton active={activeTab === 'recent'} onClick={() => setActiveTab('recent')}>Recent Searches</TabButton>
